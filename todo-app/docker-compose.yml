@@ -1,0 +1,51 @@
+version: '3.9'
+
+services:
+  nginx:
+    depends_on:
+      - frontend
+      - backend
+    image: nginx:1.20.1
+    volumes:
+      - ./nginx_prod.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - 80:80
+    container_name: reverse-proxy
+ 
+  backend:
+    build: ./todo-backend
+    ports:
+      - 3000:3000
+    container_name: backend
+    env_file:
+      - .env
+    environment:
+      - REDIS_URL
+      - MONGO_URL
+
+  frontend:
+    build: ./todo-frontend
+    ports:
+      - 3001:80
+    container_name: frontend
+    env_file:
+      - .env
+    environment:
+      - REACT_APP_BACKEND_URL
+  
+  mongo:
+    image: mongo
+    ports:
+     - 3456:27017
+    env_file:
+      - .env
+    volumes:
+      - ./todo-backend/mongo_data:/data/db
+
+  redis:
+    image: redis
+    ports:
+      - 6379:6379
+    command: ['redis-server', '--appendonly', 'yes']
+    volumes:
+      - ./todo-backend/redis_data:/data

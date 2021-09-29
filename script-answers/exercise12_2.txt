@@ -1,0 +1,20 @@
+Script started on 2021-09-27 02:45:04+03:00 [TERM="xterm-256color" TTY="/dev/pts/3" COLUMNS="171" LINES="55"]
+]0;tapio@tapio-desktop: ~/Documents/GitRepositories/Fullstackopen/part12-containers-applications/script-answers[01;32mtapio@tapio-desktop[00m:[01;34m~/Documents/GitRepositories/Fullstackopen/part12-containers-applications/script-answers[00m$ sudo docker run -it ubuntu:20.04
+[sudo] password for tapio: 
+]0;root@ec47277a105a: /root@ec47277a105a:/# [K]0;root@ec47277a105a: /root@ec47277a105a:/# mkdir usr
+mkdir: cannot create directory 'usr': File exists
+]0;root@ec47277a105a: /root@ec47277a105a:/# ls
+[0m[01;36mbin[0m  [01;34mboot[0m  [01;34mdev[0m  [01;34metc[0m  [01;34mhome[0m  [01;36mlib[0m  [01;36mlib32[0m  [01;36mlib64[0m  [01;36mlibx32[0m  [01;34mmedia[0m  [01;34mmnt[0m  [01;34mopt[0m  [01;34mproc[0m  [01;34mroot[0m  [01;34mrun[0m  [01;36msbin[0m  [01;34msrv[0m  [01;34msys[0m  [30;42mtmp[0m  [01;34musr[0m  [01;34mvar[0m
+]0;root@ec47277a105a: /root@ec47277a105a:/# cd ur sr/src/ap   
+]0;root@ec47277a105a: /usr/srcroot@ec47277a105a:/usr/src# ls
+]0;root@ec47277a105a: /usr/srcroot@ec47277a105a:/usr/src# mkdir s app
+]0;root@ec47277a105a: /usr/srcroot@ec47277a105a:/usr/src# l ce d app/
+]0;root@ec47277a105a: /usr/src/approot@ec47277a105a:/usr/src/app# thou   ouch index.js
+]0;root@ec47277a105a: /usr/src/approot@ec47277a105a:/usr/src/app# ls
+index.js
+]0;root@ec47277a105a: /usr/src/approot@ec47277a105a:/usr/src/app# exit
+exit
+]0;tapio@tapio-desktop: ~/Documents/GitRepositories/Fullstackopen/part12-containers-applications/script-answers[01;32mtapio@tapio-desktop[00m:[01;34m~/Documents/GitRepositories/Fullstackopen/part12-containers-applications/script-answers[00m$ exit
+exit
+
+Script done on 2021-09-27 02:46:32+03:00 [COMMAND_EXIT_CODE="0"]
