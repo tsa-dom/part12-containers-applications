@@ -7,7 +7,7 @@ services:
       - backend
     image: nginx:1.20.1
     volumes:
-      - ./nginx_prod.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
     ports:
       - 80:80
     container_name: reverse-proxy
@@ -39,8 +39,13 @@ services:
      - 3456:27017
     env_file:
       - .env
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME
+      - MONGO_INITDB_ROOT_PASSWORD
+      - MONGO_INITDB_DATABASE
     volumes:
       - ./todo-backend/mongo_data:/data/db
+    container_name: mongo
 
   redis:
     image: redis
@@ -49,3 +54,4 @@ services:
     command: ['redis-server', '--appendonly', 'yes']
     volumes:
       - ./todo-backend/redis_data:/data
+    container_name: redis

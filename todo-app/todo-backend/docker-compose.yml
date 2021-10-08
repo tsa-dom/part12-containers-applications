@@ -1,0 +1,33 @@
+version: '3.9'
+
+services:
+  backend:
+    build: .
+    ports:
+      - 3000:3000
+    environment:
+      - REDIS_URL=//redis:6379
+      - MONGO_URL=mongodb://root:secret@mongo:27017/todo_db
+    container_name: backend
+
+  mongo:
+    image: mongo
+    ports:
+     - 3456:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: secret
+      MONGO_INITDB_DATABASE: todo_db
+    volumes:
+      - ./mongo/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
+      - ./mongo_data:/data/db
+    container_name: mongo
+
+  redis:
+    image: redis
+    ports:
+      - 6379:6379
+    command: ['redis-server', '--appendonly', 'yes']
+    volumes:
+      - ./redis_data:/data
+    container_name: redis
